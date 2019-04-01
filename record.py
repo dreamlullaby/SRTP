@@ -1,8 +1,6 @@
 #recording
-
 import pyaudio
 import wave
-
 CHUNK = 1024
 FORMAT = pyaudio.paInt16
 CHANNELS = 2
@@ -27,11 +25,9 @@ def rec(file_name):
         frames.append(data)
 
     print("录音结束!")
-
     stream.stop_stream()
     stream.close()
     p.terminate()
-
     wf = wave.open(file_name, 'wb')
     wf.setnchannels(CHANNELS)
     wf.setsampwidth(p.get_sample_size(FORMAT))
